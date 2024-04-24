@@ -15,9 +15,16 @@ pub struct AppState {
 
 pub async fn create_app_state() -> AppState {
     let config = Config::from_env();
-    let pool = MySqlPool::connect(config.database_url.as_str()).await.expect("Failed to connect to database");
+    let pool = MySqlPool::connect(config.database_url.as_str())
+        .await
+        .expect("Failed to connect to database");
     let repos = Repos::new(pool.clone());
     let services = Services::new();
 
-    AppState { db: pool, repos, services, config }
+    AppState {
+        db: pool,
+        repos,
+        services,
+        config,
+    }
 }

@@ -1,8 +1,7 @@
-
 pub struct Config {
     pub database_url: String,
 }
-    
+
 impl Config {
     pub fn from_env() -> Self {
         dotenv::dotenv().expect("Failed to read .env file");

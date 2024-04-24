@@ -1,5 +1,5 @@
-use sqlx::MySqlPool;
 use crate::models::kline_repo::KlineRepo;
+use sqlx::MySqlPool;
 
 pub struct Repos {
     pub kline_repo: KlineRepo,
@@ -8,7 +8,7 @@ pub struct Repos {
 impl Repos {
     pub fn new(db: MySqlPool) -> Self {
         Self {
-            kline_repo: KlineRepo { db }
+            kline_repo: KlineRepo { db },
         }
     }
 }
